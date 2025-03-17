@@ -1,0 +1,32 @@
+<html>
+	<head>
+		<style>
+		.speech-bubble {
+			position: relative;
+			background: #00aabb;
+			border-radius: .4em;
+			width: 100px;
+			height:100px;
+		}
+
+		.speech-bubble:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 30%;
+			width: 0;
+			height: 0;
+			z-index: -111;
+			border: 10px solid transparent;
+			border-left-color: #006677;
+			margin-top: -8.5px;
+			margin-right: -17px;
+		}
+	
+		</style>
+	</head>
+	<body>
+
+	<div class="speech-bubble"></div>
+	</body>
+</html>
