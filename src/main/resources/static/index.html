@@ -10,19 +10,65 @@
 <body>
 
 
+<input type="text" name="name" id="message" />
+
+<button class="activate">Activate</button>
+<button class="deactivate">Deactivate</button>
+<button class="send-greetings">Send Greetings</button>
+<button class="send-message">Send Message</button>
+
+
+
+
 <script type="module">
-  import {Client} from './stomp.umd.js';
+  import {Client} from './stomp.umd.map.js';
+
+  const message = document.querySelector("#message");
 
   const client = new Client({
-    brokerURL: "ws://localhost:8080/gs-guide-websocket",
-    onConnect: () => {
-      client.subscribe("/topic/greetings", greeting => {
-        console.log(greeting);
-      });
-    }
+    brokerURL: 'ws://localhost:8080/gs-guide-websocket'
+  })
+
+  client.onConnect = frame => {
+    console.log("Connected: ",frame);
+    client.subscribe("/topic/greetings", greeting => {
+      console.log("Greetings Came: ", JSON.parse(greeting.body));
+    });
+    client.subscribe("/chat/messages", message => {
+      console.log("Message Came: ", JSON.parse(message.body));
+    });
+  };
+
+  document.querySelector(".send-message").addEventListener("click", e => {
+    client.publish({
+      destination: "/live/messages",
+      body: JSON.stringify({'name': message.value})
+    });
   });
 
-  stompClient.onconnect
+  document.querySelector(".send-greetings").addEventListener("click", e => {
+    client.publish({
+      destination: "/live/greetings",
+      body: JSON.stringify({'name': message.value})
+    });
+  });
+
+  client.onWebSocketClose = error => {
+    console.log("Socket Error: ", error);
+  }
+
+  client.onStompError = error => {
+    console.log("Stomp Error: ", error)
+  }
+
+  document.querySelector(".activate").addEventListener("click", e => {
+    client.activate();
+  });
+
+  document.querySelector(".deactivate").addEventListener("click", e => {
+    client.deactivate();
+  });
+
 
 </script>
 </body>

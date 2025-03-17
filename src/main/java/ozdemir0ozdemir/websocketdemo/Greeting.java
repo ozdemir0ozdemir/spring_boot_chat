@@ -1,2 +1,4 @@
-package ozdemir0ozdemir.websocketdemo;public record Greeting() {
+package ozdemir0ozdemir.websocketdemo;
+
+public record Greeting(String content) {
 }
