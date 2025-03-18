@@ -16,6 +16,7 @@ input[type="text"] {
 }
 
 input[type="text"]:focus {
+  background-color: #effdf3;
   border-bottom: 1px solid #292929;
 }
 
@@ -64,7 +65,7 @@ main {
   max-width: 1000px
 }
 
-.conversations-panel {
+.active-users-panel {
   display: flex;
   flex-direction: column;
   row-gap: .5rem;
@@ -74,13 +75,13 @@ main {
   margin-right: 1rem;
 }
 
-.conversations {
+.active-users {
   display: flex;
   flex-direction: column;
   row-gap: .5rem;
 }
 
-.conversation-card {
+.active-users-card {
   padding: .7rem;
   border-bottom: 1px solid #b1b1b1;
   display: flex;
@@ -89,15 +90,18 @@ main {
   cursor: pointer;
 }
 
-.conversation-card:hover {
+.active-users-card:hover {
   background-color: #effdf3;
   border-bottom: 1px solid #1e1e1e;
 }
 
-.conversation-card:active {
+.active-users-card:active {
   background-color: #9ef2d1;
 }
 
+.active-users-title {
+  height: 40px;
+}
 
 .chat-panel {
   display: grid;
@@ -105,7 +109,7 @@ main {
 }
 
 .chat-title,
-.conversations-title {
+.active-users-title {
   background-color: #3a3a3a;
   color: white;
   display: flex;
@@ -114,20 +118,47 @@ main {
   border-radius: 4px;
 }
 
-.conversations-title {
-  height: 40px;
-}
-
 .chat-history {
   padding: 1rem;
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
+  height: calc(100vh - 120px);
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .message {
-  padding: 1rem;
   border-radius: .5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.message > .message-text {
+  padding: 1rem;
+}
+
+.message > .message-info{
+  padding: .5rem 1rem;
+}
+
+.message > .message-info {
+  font-size: .75rem;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  background-color: #0001;
+  border-radius: 0 0 .5rem .5rem;
+  color: #535353;
+}
+
+.message > .message-info:hover {
+  text-decoration: underline;
+  color:black;
+}
+
+.others-message > .message-info {
+  justify-content: start;
 }
 
 .others-message {
@@ -135,7 +166,6 @@ main {
   margin-right: 20%;
   position: relative;
 }
-
 
 .my-message {
   background-color: #9ff4d2;
@@ -162,7 +192,6 @@ main {
   border-left-color: #9ff4d2;
   margin-right: -19px;
 }
-
 
 .chat-inputs {
   display: grid;
