@@ -74,9 +74,15 @@ main {
   margin-right: 1rem;
 }
 
+.conversations {
+  display: flex;
+  flex-direction: column;
+  row-gap: .5rem;
+}
+
 .conversation-card {
   padding: .7rem;
-  border: 1px solid #b1b1b1;
+  border-bottom: 1px solid #b1b1b1;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -84,13 +90,13 @@ main {
 }
 
 .conversation-card:hover {
-  background-color: #bdbdbd;
+  background-color: #effdf3;
+  border-bottom: 1px solid #1e1e1e;
 }
 
 .conversation-card:active {
-  background-color: #919191;
+  background-color: #9ef2d1;
 }
-
 
 
 .chat-panel {
@@ -99,7 +105,7 @@ main {
 }
 
 .chat-title,
-.conversations-title{
+.conversations-title {
   background-color: #3a3a3a;
   color: white;
   display: flex;
@@ -107,6 +113,7 @@ main {
   padding-left: 1rem;
   border-radius: 4px;
 }
+
 .conversations-title {
   height: 40px;
 }
@@ -124,14 +131,14 @@ main {
 }
 
 .others-message {
-  background-color: #d6d6d6;
+  background-color: #fff3da;
   margin-right: 20%;
   position: relative;
 }
 
 
 .my-message {
-  background-color: lightgreen;
+  background-color: #9ff4d2;
   margin-left: 20%;
   position: relative;
 }
@@ -140,20 +147,20 @@ main {
 .my-message:after {
   content: '';
   position: absolute;
-  top:20%;
+  top: 20%;
   border: 10px solid transparent;
 }
 
 .others-message:before {
-  left:0;
-  border-right-color: #dad8d8;
+  left: 0;
+  border-right-color: #fff3da;
   margin-left: -19px;
 }
 
 .my-message:after {
-  right:0;
-  border-left-color: #a0d8a0;
-  margin-right:-19px;
+  right: 0;
+  border-left-color: #9ff4d2;
+  margin-right: -19px;
 }
 
 
