@@ -11,25 +11,22 @@
 <body>
 
 <main>
-  <div class="login-panel">
-    <input type="text" name="username"
-           id="username"
-           placeholder="enter your username..."/>
-    <button type="button">connect</button>
-  </div>
+
   <div class="chat-container">
-    <div class="active-users-panel">
-      <div class="active-users-title">online users</div>
-      <div class="active-users">
-        <div class="active-users-card">username_1</div>
-        <div class="active-users-card">username_2</div>
-        <div class="active-users-card">username_3</div>
-        <div class="active-users-card">username_4</div>
+    <div class="online-users-panel">
+      <div class="title-bar">
+        online users
       </div>
+      <ul class="online-users">
+        <li>username_1</li>
+        <li>username_2</li>
+        <li>username_3</li>
+        <li>username_4</li>
+      </ul>
 
     </div>
     <div class="chat-panel">
-      <div class="chat-title">
+      <div class="title-bar">
         chat room - one
       </div>
       <div class="chat-history">
@@ -261,9 +258,16 @@
         <!-- DELETED -->
 
       </div>
-      <div class="chat-inputs">
+      <div class="chat-inputs login d-grid">
+        <input type="text" name="username"
+               id="username"
+               placeholder="enter your username..."/>
+        <button type="button">connect</button>
+      </div>
+      <div class="chat-inputs d-none">
         <input type="text" name="new-message" id="new-message" placeholder="enter your new message..."/>
         <button type="button">send</button>
+        <button type="button">logout</button>
       </div>
     </div>
 
